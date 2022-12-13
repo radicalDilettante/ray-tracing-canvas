@@ -15,6 +15,9 @@ const circleStates = {
   centerX: canvas.width / 2,
   centerY: canvas.height / 2,
   rad: 1000,
+  r: 255,
+  g: 0,
+  b: 0,
 };
 
 const control = document.getElementById("control");
@@ -28,25 +31,53 @@ select.addEventListener("change", (e) => {
       draw = () => clean(canvas, data);
       break;
     case "circle":
-      const centerX = inputRange("Center X", 0, canvas.width);
+      const centerX = inputRange(
+        "Center X",
+        0,
+        canvas.width,
+        circleStates.centerX
+      );
       centerX.querySelector("input").addEventListener("input", (e) => {
         centerX.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
         circleStates.centerX = e.currentTarget.value;
       });
-      const centerY = inputRange("Center Y", 0, canvas.height);
+      const centerY = inputRange(
+        "Center Y",
+        0,
+        canvas.height,
+        circleStates.centerY
+      );
       centerY.querySelector("input").addEventListener("input", (e) => {
         centerY.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
         circleStates.centerY = e.currentTarget.value;
       });
-      const rad = inputRange("Radius", 0, 2000);
+      const rad = inputRange("Radius", 0, 2000, circleStates.rad);
       rad.querySelector("input").addEventListener("input", (e) => {
         rad.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
         circleStates.rad = e.currentTarget.value;
+      });
+      const r = inputRange("Red", 0, 255, circleStates.r);
+      r.querySelector("input").addEventListener("input", (e) => {
+        r.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
+        circleStates.r = e.currentTarget.value;
+      });
+      const g = inputRange("Green", 0, 255, circleStates.g);
+      g.querySelector("input").addEventListener("input", (e) => {
+        g.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
+        circleStates.g = e.currentTarget.value;
+      });
+      const b = inputRange("Blue", 0, 255, circleStates.b);
+      b.querySelector("input").addEventListener("input", (e) => {
+        b.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
+        circleStates.b = e.currentTarget.value;
       });
 
       control.appendChild(centerX);
       control.appendChild(centerY);
       control.appendChild(rad);
+      control.appendChild(r);
+      control.appendChild(g);
+      control.appendChild(b);
       draw = () => drawCircle(canvas, data, circleStates);
       break;
   }

@@ -1,5 +1,5 @@
-export function inputRange(name, min, max) {
-  // min,  max: number
+export function inputRange(name, min, max, initial) {
+  // min,  max, initial: number
   const component = document.createElement("div");
   const label = document.createElement("label");
   const input = document.createElement("input");
@@ -12,7 +12,7 @@ export function inputRange(name, min, max) {
   input.type = "range";
   input.min = min.toString();
   input.max = max.toString();
-  input.value = ((min + max) / 2).toString();
-  value.innerHTML = ` (${((min + max) / 2).toString()})`;
+  input.value = initial.toString();
+  value.innerHTML = ` (${initial.toString()})`;
   return component;
 }

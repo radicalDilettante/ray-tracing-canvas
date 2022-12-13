@@ -9,9 +9,9 @@ export function drawCircle(canvas, data, circleStates) {
         circleStates.centerY,
         circleStates.rad
       );
-      data[r] = 255;
-      data[r + 1] = inside ? 0 : 255;
-      data[r + 2] = inside ? 0 : 255;
+      data[r] = inside ? circleStates.r : 255;
+      data[r + 1] = inside ? circleStates.g : 255;
+      data[r + 2] = inside ? circleStates.b : 255;
       data[r + 3] = 255;
     }
   }

@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head></head>
-  <body style="width: 800px; margin: 0 auto">
-    <div style="text-align: left; margin-bottom: 20px">
-      <h1>Ray Tracing with Canvas 2D</h1>
+  <body style="width: 800px; margin: 40px auto 100px auto">
+    <header
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 10px;
+      "
+    >
+      <h1 style="margin: 0">Ray Tracing with Canvas 2D</h1>
       <select id="select" style="font-size: 20px; padding: 2px 5px">
-        <option value="select">Select</option>
+        <option value="select">-- Select --</option>
         <option value="circle">01. Circle</option>
       </select>
-    </div>
-    <div id="control" style="display: flex; flex-direction: column"></div>
-    <div style="text-align: right">800 * 600</div>
-    <canvas id="canvas" style="border: 1px solid black"></canvas>
+    </header>
+    <section style="width: 800px; height: 600px; position: relative">
+      <canvas id="canvas" style="border: 1px solid black"> </canvas>
+      <div
+        id="control"
+        style="position: absolute; bottom: 10px; left: 10px"
+      ></div>
+      <span style="position: absolute; top: 5px; right: 5px">800 * 600</span>
+    </section>
   </body>
   <script src="src/main.js" type="module"></script>
 </html>
