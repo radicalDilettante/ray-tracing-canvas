@@ -5,7 +5,7 @@ export class Circle {
     this.canvas = document.getElementById("canvas");
     this.centerX = this.canvas.width / 2;
     this.centerY = this.canvas.height / 2;
-    this.rad = 500;
+    this.rad = 150;
     this.r = 255;
     this.g = 0;
     this.b = 0;
@@ -13,7 +13,7 @@ export class Circle {
 
   isInside(x, y, centerX, centerY, radius) {
     const distance = Math.sqrt(
-      Math.pow(x - centerY * 4, 2) + Math.pow(y - centerX * 4, 2)
+      Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2)
     );
     return distance <= radius;
   }
@@ -23,8 +23,8 @@ export class Circle {
       for (let j = 0; j < this.canvas.width * 4; j = j + 4) {
         const r = this.canvas.width * i + j;
         const inside = this.isInside(
-          i,
-          j,
+          j / 4,
+          i / 4,
           this.centerX,
           this.centerY,
           this.rad
@@ -39,7 +39,7 @@ export class Circle {
 
   addControl() {
     const control = document.getElementById("control");
-
+    control.innerHTML = "";
     const centerX = inputRange("Center X", 0, canvas.width, this.centerX);
     centerX.querySelector("input").addEventListener("input", (e) => {
       centerX.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
@@ -50,7 +50,7 @@ export class Circle {
       centerY.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
       this.centerY = e.currentTarget.value;
     });
-    const rad = inputRange("Radius", 0, 2000, this.rad);
+    const rad = inputRange("Radius", 0, 300, this.rad);
     rad.querySelector("input").addEventListener("input", (e) => {
       rad.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
       this.rad = e.currentTarget.value;
