@@ -1,6 +1,7 @@
 import { clean } from "./00-clean.js";
 import { Circle } from "./01-circle.js";
 import { CircleWorldSpace } from "./02-circle-world-space.js";
+import { Sphere } from "./03-sphere.js";
 
 const canvas = document.getElementById("canvas");
 canvas.width = 800;
@@ -33,9 +34,16 @@ select.addEventListener("input", (e) => {
       circleWorldSpace.addControl();
       draw = () => circleWorldSpace.draw(data);
       break;
+    case "sphere":
+      const sphere = new Sphere();
+      sphere.addControl();
+      draw = () => sphere.draw(data);
+      break;
   }
 });
-
+const sphere = new Sphere();
+sphere.addControl();
+draw = () => sphere.draw(data);
 function render() {
   draw();
   ctx.putImageData(imageData, 0, 0);
