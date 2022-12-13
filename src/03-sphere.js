@@ -95,7 +95,5 @@ export class Sphere {
     control.appendChild(r);
     control.appendChild(g);
     control.appendChild(b);
-    control.style =
-      "position: absolute; bottom: 0; left: 0; background-color:#fff; opacity:0.6; padding:10px";
   }
 }
