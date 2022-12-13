@@ -1,4 +1,4 @@
-export function inputRange(name, min, max, initial) {
+export function inputRange(name, min, max, initial, isFloat) {
   // min,  max, initial: number
   const component = document.createElement("div");
   const label = document.createElement("label");
@@ -10,6 +10,7 @@ export function inputRange(name, min, max, initial) {
   component.style = " display: flex;";
   label.innerHTML = `${name}: `;
   input.type = "range";
+  isFloat && (input.step = "0.001");
   input.min = min.toString();
   input.max = max.toString();
   input.value = initial.toString();

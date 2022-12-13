@@ -1,5 +1,6 @@
 import { clean } from "./00-clean.js";
 import { Circle } from "./01-circle.js";
+import { CircleWorldSpace } from "./02-circle-world-space.js";
 
 const canvas = document.getElementById("canvas");
 canvas.width = 800;
@@ -14,9 +15,6 @@ let draw = () => {};
 const control = document.getElementById("control");
 const select = document.getElementById("select");
 
-// Classes
-const circle = new Circle();
-
 select.addEventListener("input", (e) => {
   const val = e.currentTarget.value;
 
@@ -26,8 +24,14 @@ select.addEventListener("input", (e) => {
       draw = () => clean(canvas, data);
       break;
     case "circle":
+      const circle = new Circle();
       circle.addControl();
       draw = () => circle.draw(data);
+      break;
+    case "circleWorldSpace":
+      const circleWorldSpace = new CircleWorldSpace();
+      circleWorldSpace.addControl();
+      draw = () => circleWorldSpace.draw(data);
       break;
   }
 });
