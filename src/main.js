@@ -29,17 +29,17 @@ select.addEventListener("change", (e) => {
       break;
     case "circle":
       const centerX = inputRange("Center X", 0, canvas.width);
-      centerX.querySelector("input").addEventListener("change", (e) => {
+      centerX.querySelector("input").addEventListener("input", (e) => {
         centerX.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
         circleStates.centerX = e.currentTarget.value;
       });
       const centerY = inputRange("Center Y", 0, canvas.height);
-      centerY.querySelector("input").addEventListener("change", (e) => {
+      centerY.querySelector("input").addEventListener("input", (e) => {
         centerY.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
         circleStates.centerY = e.currentTarget.value;
       });
       const rad = inputRange("Radius", 0, 2000);
-      rad.querySelector("input").addEventListener("change", (e) => {
+      rad.querySelector("input").addEventListener("input", (e) => {
         rad.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
         circleStates.rad = e.currentTarget.value;
       });
