@@ -13,6 +13,10 @@ const data = imageData.data;
 
 // States
 let draw = () => {};
+const circle = new Circle();
+const circleWorldSpace = new CircleWorldSpace();
+const sphere = new Sphere();
+const phongShading = new PhongShading();
 
 const control = document.getElementById("control");
 const select = document.getElementById("select");
@@ -26,22 +30,18 @@ select.addEventListener("input", (e) => {
       draw = () => clean(canvas, data);
       break;
     case "circle":
-      const circle = new Circle();
       circle.addControl();
       draw = () => circle.draw(data);
       break;
     case "circleWorldSpace":
-      const circleWorldSpace = new CircleWorldSpace();
       circleWorldSpace.addControl();
       draw = () => circleWorldSpace.draw(data);
       break;
     case "sphere":
-      const sphere = new Sphere();
       sphere.addControl();
       draw = () => sphere.draw(data);
       break;
     case "phongShading":
-      const phongShading = new PhongShading();
       phongShading.addControl();
       draw = () => phongShading.draw(data);
       break;
