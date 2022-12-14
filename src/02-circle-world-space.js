@@ -57,17 +57,23 @@ export class CircleWorldSpace {
       true
     );
     centerX.querySelector("input").addEventListener("input", (e) => {
-      centerX.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
+      centerX.querySelector("span").innerHTML = ` (${parseFloat(
+        e.currentTarget.value
+      ).toFixed(2)})`;
       this.centerX = e.currentTarget.value;
     });
     const centerY = inputRange("Center Y", -1, 1, this.centerY, true);
     centerY.querySelector("input").addEventListener("input", (e) => {
-      centerY.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
+      centerY.querySelector("span").innerHTML = ` (${parseFloat(
+        e.currentTarget.value
+      ).toFixed(2)})`;
       this.centerY = e.currentTarget.value;
     });
     const rad = inputRange("Radius", 0, 1, this.rad, true);
     rad.querySelector("input").addEventListener("input", (e) => {
-      rad.querySelector("span").innerHTML = ` (${e.currentTarget.value})`;
+      rad.querySelector("span").innerHTML = ` (${parseFloat(
+        e.currentTarget.value
+      ).toFixed(2)})`;
       this.rad = e.currentTarget.value;
     });
     const r = inputRange("Red", 0, 255, this.r);
