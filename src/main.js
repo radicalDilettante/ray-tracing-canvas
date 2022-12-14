@@ -41,9 +41,7 @@ select.addEventListener("input", (e) => {
       break;
   }
 });
-const sphere = new Sphere();
-sphere.addControl();
-draw = () => sphere.draw(data);
+
 function render() {
   draw();
   ctx.putImageData(imageData, 0, 0);
