@@ -15,12 +15,7 @@ const data = imageData.data;
 let draw = () => {};
 
 const control = document.getElementById("control");
-const controlButton = document.getElementById("control-button");
 const select = document.getElementById("select");
-
-controlButton.addEventListener("click", () => {
-  control.hidden = !control.hidden;
-});
 
 select.addEventListener("input", (e) => {
   const val = e.currentTarget.value;
