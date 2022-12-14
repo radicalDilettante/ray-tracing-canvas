@@ -43,7 +43,11 @@ export class Sphere {
       const d1 = (-1 * b) / 2 + Math.sqrt(nabla);
       const d2 = (-1 * b) / 2 - Math.sqrt(nabla);
       hit.d = Math.min(d1, d2);
-      hit.point = start + dir * hit.d;
+      hit.point = vec3.fromValues(
+        start[0] + dir[0] * hit.d,
+        start[1] + dir[1] * hit.d,
+        start[2] + dir[2] * hit.d
+      );
       vec3.normalize(
         hit.normal,
         vec3.fromValues(

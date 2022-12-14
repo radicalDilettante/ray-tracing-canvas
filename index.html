@@ -18,24 +18,29 @@
         <option value="circle">01. Circle Screen Space</option>
         <option value="circleWorldSpace">02. Circle World Space</option>
         <option value="sphere">03. Sphere</option>
+        <option value="phongShading">04. Phong Shading</option>
       </select>
     </header>
     <section style="width: 800px; height: 600px; position: relative">
       <canvas id="canvas" style="border: 1px solid black"> </canvas>
       <div
-        id="control"
         style="
           position: absolute;
           top: 1px;
           left: 1px;
           background-color: #fff;
           opacity: 0.8;
-          padding: 10px;
-          width: 240px;
-          overflow: hidden;
+          max-height: 200px;
+          overflow-y: auto;
         "
-      ></div>
-      <span style="position: absolute; top: 5px; right: 5px">800 * 600</span>
+      >
+        <button id="control-button" style="height: 30px">Setting</button>
+        <div id="control" style="overflow: hidden; padding: 10px" hidden></div>
+      </div>
+
+      <span style="position: absolute; top: 5px; right: 5px; color: gray"
+        >800 * 600</span
+      >
     </section>
   </body>
   <script src="src/main.js" type="module"></script>

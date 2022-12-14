@@ -2,6 +2,7 @@ import { clean } from "./00-clean.js";
 import { Circle } from "./01-circle.js";
 import { CircleWorldSpace } from "./02-circle-world-space.js";
 import { Sphere } from "./03-sphere.js";
+import { PhongShading } from "./04-phong-shading.js";
 
 const canvas = document.getElementById("canvas");
 canvas.width = 800;
@@ -14,7 +15,12 @@ const data = imageData.data;
 let draw = () => {};
 
 const control = document.getElementById("control");
+const controlButton = document.getElementById("control-button");
 const select = document.getElementById("select");
+
+controlButton.addEventListener("click", () => {
+  control.hidden = !control.hidden;
+});
 
 select.addEventListener("input", (e) => {
   const val = e.currentTarget.value;
@@ -38,6 +44,11 @@ select.addEventListener("input", (e) => {
       const sphere = new Sphere();
       sphere.addControl();
       draw = () => sphere.draw(data);
+      break;
+    case "phongShading":
+      const phongShading = new PhongShading();
+      phongShading.addControl();
+      draw = () => phongShading.draw(data);
       break;
   }
 });
